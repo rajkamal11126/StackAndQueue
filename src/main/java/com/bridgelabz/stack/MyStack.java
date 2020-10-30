@@ -30,12 +30,12 @@ public class MyStack {
 		return myLinkedList.pop();
 	}
 
-	public void enqueu(INode myNode) {
+	public void enqueue(INode myNode) {
 		myLinkedList.append(myNode);
 
 	}
 
-	public void enqueue(INode myNode) {
-		myLinkedList.append(myNode);
+	public INode dequeue() {
+		return myLinkedList.pop();
 	}
 }
