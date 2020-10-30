@@ -29,4 +29,13 @@ public class MyStack {
 	public INode pop() {
 		return myLinkedList.pop();
 	}
+
+	public void enqueu(INode myNode) {
+		myLinkedList.append(myNode);
+
+	}
+
+	public void enqueue(INode myNode) {
+		myLinkedList.append(myNode);
+	}
 }
