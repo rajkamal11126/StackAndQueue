@@ -6,13 +6,13 @@ public class MyLinkedList<K> {
 
 	public MyLinkedList() {
 		this.head = null;
-		this.tail = null ;
+		this.tail = null;
 	}
 
 	public void add(INode<K> newNode) {
-		if(this.head == null )
+		if (this.head == null)
 			this.head = newNode;
-		if(this.tail == null)
+		if (this.tail == null)
 			this.tail = newNode;
 		else {
 			INode tempNode = this.head;
@@ -20,35 +20,47 @@ public class MyLinkedList<K> {
 			this.head.setNext(tempNode);
 		}
 	}
+
 	public void append(INode newNode) {
-		if(this.head == null )
+		if (this.head == null)
 			this.head = newNode;
-		if(this.tail == null)
+		if (this.tail == null)
 			this.tail = newNode;
 		else {
 			this.tail.setNext(newNode);
-			this.tail = newNode;	
-		}		
+			this.tail = newNode;
+		}
 	}
+
 	public void insert(INode myNode, INode newNode) {
 		INode tempNode = myNode.getNext();
 		myNode.setNext(newNode);
-		newNode.setNext(tempNode);	
+		newNode.setNext(tempNode);
 	}
-	public INode delete() {
-		INode tempNode =  this.head ;
+//using pop operation for remove the element
+	public INode pop() {
+		INode tempNode = this.head;
 		this.head = this.head.getNext();
-		return tempNode;	
+		return tempNode;
 	}
-	public void printNodes() {
+//to check the node is empty or not
+	public boolean isEmpty() {
+		if (this.head == null)
+			return true;
+		else
+			return false;
+	}
+// print elements till the end 
+	public void printMyNodes() {
 		StringBuffer myNodes = new StringBuffer("My Nodes  ");
-		INode tempNode = head ;
-		while (tempNode.getNext()!= null ) {
+		INode tempNode = head;
+		while (tempNode.getNext() != null) {
 			myNodes.append(tempNode.getKey());
-			if(!tempNode.equals(tail)) myNodes.append(" -> ");
+			if (!tempNode.equals(tail))
+				myNodes.append(" -> ");
 			tempNode = tempNode.getNext();
 		}
 		myNodes.append(tempNode.getKey());
-		System.out.println(myNodes);	
+		System.out.println(myNodes);
 	}
 }
